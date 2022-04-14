@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class BattleShips {
 
@@ -7,6 +7,7 @@ public class BattleShips {
     private int numPlayerShips = 0;
     private int numCompShips = 0;
     private int turn = 0;
+    private Random randInt = new Random();
 
 
     /**
@@ -51,6 +52,9 @@ public class BattleShips {
                 else if(board[row][col].equals("1")) {
                     System.out.print("@");
                 }
+                else if(board[row][col].equals("+")) {
+                    System.out.print(" ");
+                }
                 else{
                     System.out.print(board[row][col]);
                 }
@@ -60,6 +64,13 @@ public class BattleShips {
         System.out.println("   0123456789");
     }
 
+    /**
+     * Getter for the board
+     * @return returns a 2D array representing the battelship board
+     */
+    public String[][] getBoard(){
+        return board;
+    }
     /**
      * Places a player ship in the board at the specified coordinate.
      * @param x x coordinate of ship
@@ -113,7 +124,7 @@ public class BattleShips {
      * @return true is there is a ship already there, false if not
      */
     public boolean checkCollision(int x, int y){
-        if(board[y][x].equals("@")){
+        if(board[y][x].equals("1")||board[y][x].equals("2")){
             return true;
         }
         return false;
@@ -134,9 +145,48 @@ public class BattleShips {
         return false;
     }
 
-    /*public void launchMissile(int x, int y){
-        if(board[y][x] == )
-    }*/
+    public void launchPlayerMissile(int x, int y){
+        if(board[y][x].equals("1")){
+            System.out.println("Oh no, you sunk your own ship :(");
+            board[y][x] = "x";
+            numPlayerShips--;
+            turn++;
+        }
+        else if(board[y][x].equals("2")){
+            System.out.println("Boom! You sunk the ship");
+            board[y][x] = "!";
+            numCompShips--;
+            turn++;
+        }
+        else{
+            System.out.println("Sorry, you missed");
+            board[y][x] = "-";
+            turn++;
+        }
+    }
+
+    public void launchComputerMissile(int x, int y){
+        if(board[y][x].equals("2")){
+            System.out.println("The computer sunk one of its own ships");
+            board[y][x] = "!";
+            numCompShips--;
+            turn++;
+        }
+        else if(board[y][x].equals("1")){
+            System.out.println("The computer sunk your ship");
+            board[y][x] = "x";
+            numPlayerShips--;
+            turn++;
+        }
+        else if(board[y][x].equals("+")){
+            launchComputerMissile(randInt.nextInt(10),randInt.nextInt(10));
+        }
+        else{
+            System.out.println("Computer missed");
+            board[y][x] = "+";
+            turn++;
+        }
+    }
 
 
 }

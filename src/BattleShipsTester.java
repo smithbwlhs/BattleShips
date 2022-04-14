@@ -49,16 +49,39 @@ public class BattleShipsTester {
         game.printBoard();
         System.out.println("Let the battle begin!");
         //game.printBoardFull();
-        /*while(game.getCompShipCount()>0 || game.getPlayerShipCount()>0) {
+        while(game.getCompShipCount()>0 && game.getPlayerShipCount()>0) {
             int turn = game.getTurn();
             if(turn%2 == 0) {
+                System.out.println("Your turn");
                 System.out.println("Enter the X coordinate: ");
+                xCoord = input.nextInt();
                 System.out.println("Enter the Y coordinate: ");
+                yCoord = input.nextInt();
+                game.launchPlayerMissile(xCoord,yCoord);
+                game.printBoardFull();
+                System.out.println("Your ships: "+game.getPlayerShipCount()+" | "+"Computer ships: "+game.getCompShipCount());
             }
             else{
-
+                System.out.println("Computer's Turn");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                }
+                catch(InterruptedException ex){
+                    Thread.currentThread().interrupt();
+                }
+                xCoord = randInt.nextInt(10);
+                yCoord = randInt.nextInt(10);
+                game.launchComputerMissile(xCoord,yCoord);
+                game.printBoardFull();
+                System.out.println("Your ships: "+game.getPlayerShipCount()+" | "+"Computer ships: "+game.getCompShipCount());
             }
-        }*/
+        }
+        if(game.getCompShipCount() == 0){
+            System.out.println("Congratulations! You have sunk all of the computer's ships.");
+        }
+        else{
+            System.out.println("The computer sunk all of your ships. Better luck next time.");
+        }
 
 
 
