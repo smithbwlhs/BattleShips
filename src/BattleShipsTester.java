@@ -18,10 +18,10 @@ public class BattleShipsTester {
             System.out.println("Enter the Y coordinate for ship "+(game.getPlayerShipCount()+1)+": ");
             yCoord = input.nextInt();
             //boolean inBounds = (xCoord>=0 && xCoord<=9 && yCoord>=0 && yCoord<=9);
-            if(game.inBounds(xCoord,yCoord) && !game.checkCollision(xCoord,yCoord)){
+            if(game.validMove(xCoord,yCoord) && !game.checkCollision(xCoord,yCoord)){
                 game.placePlayerShip(xCoord,yCoord);
             }
-            else if(game.inBounds(xCoord,yCoord)&& game.checkCollision(xCoord,yCoord)){
+            else if(game.validMove(xCoord,yCoord)&& game.checkCollision(xCoord,yCoord)){
                 System.out.println("There is already a ship at this location.");
             }
             else {
@@ -33,7 +33,7 @@ public class BattleShipsTester {
         while(game.getCompShipCount()<5) {
             xCoord = randInt.nextInt(10);
             yCoord = randInt.nextInt(10);
-            if(game.inBounds(xCoord,yCoord) && !game.checkCollision(xCoord,yCoord)){
+            if(game.validMove(xCoord,yCoord) && !game.checkCollision(xCoord,yCoord)){
                 game.placeComputerShip(xCoord,yCoord);
                 System.out.println("Computer ship "+(game.getCompShipCount())+" has been placed.");
                 try {
@@ -61,7 +61,7 @@ public class BattleShipsTester {
                 xCoord = input.nextInt();
                 System.out.println("Enter the Y coordinate: ");
                 yCoord = input.nextInt();
-                if(game.inBounds(xCoord,yCoord)&& game.validMove(xCoord,yCoord)) {
+                if(game.validMove(xCoord,yCoord)) {
                     game.launchPlayerMissile(xCoord, yCoord);
                     game.printBoard();
                     System.out.println("Your ships: " + game.getPlayerShipCount() + " | " + "Computer ships: " + game.getCompShipCount());

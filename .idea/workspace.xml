@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15785a53-9d2e-41b1-9ef9-5804a4410fd7" name="Changes" comment="Fixed issue with already hit spots being overwritten by misses" />
+    <list default="true" id="15785a53-9d2e-41b1-9ef9-5804a4410fd7" name="Changes" comment="Placed inBounds methods into the valid move method. Added x to the list of invalid moves">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BattleShips/BattleShips.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BattleShips/BattleShips.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BattleShips/BattleShipsTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BattleShips/BattleShipsTester.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BattleShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleShips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BattleShipsTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleShipsTester.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +78,7 @@
       <workItem from="1649887594915" duration="1941000" />
       <workItem from="1649977229052" duration="2684000" />
       <workItem from="1650247274864" duration="19000" />
-      <workItem from="1650470835280" duration="4172000" />
+      <workItem from="1650470835280" duration="4933000" />
     </task>
     <task id="LOCAL-00001" summary="Finished all methods, fixed issue with collision check from when I switch to using 1 and 2 to track ship locations.">
       <created>1649979863366</created>
@@ -88,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650476525869</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="out directory now included hopefully">
+      <created>1650476766390</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650476766390</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +122,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished all methods, fixed issue with collision check from when I switch to using 1 and 2 to track ship locations." />
     <MESSAGE value="Fixed issue with already hit spots being overwritten by misses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with already hit spots being overwritten by misses" />
+    <MESSAGE value="out directory now included hopefully" />
+    <MESSAGE value="Placed inBounds methods into the valid move method. Added x to the list of invalid moves" />
+    <option name="LAST_COMMIT_MESSAGE" value="Placed inBounds methods into the valid move method. Added x to the list of invalid moves" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

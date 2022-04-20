@@ -129,27 +129,30 @@ public class BattleShips {
 
     /**
      * This method checks to see if the coordinate the user enters is valid
-     * i.e. between 0 and 9
+     * i.e. between 0 and 9. It was merged into the validMove method
      *
      * @param x user x coordinate
      * @param y user y coordinate
      * @return true if the coordinate is in bounds, false otherwise
      */
-    public boolean inBounds(int x, int y){
+    /*public boolean inBounds(int x, int y){
         if(x>=0 && x<=9 && y>=0 && y<=9){
             return true;
         }
         return false;
-    }
+    }*/
 
     public boolean validMove(int x, int y){
-        if(board[y][x].equals("-")||board[y][x].equals("+")||board[y][x].equals("!")){
+        if(board[y][x].equals("-")||board[y][x].equals("+")||board[y][x].equals("!")||board[y][x].equals("x")){
             if(turn%2 == 0){
                 System.out.println("This is not a valid move.");
                 return false;
             }
         }
-        return true;
+        if(x<0 || x>9 || y<0 || y>9){
+            return true;
+        }
+        return false;
     }
 
     public void launchPlayerMissile(int x, int y){
