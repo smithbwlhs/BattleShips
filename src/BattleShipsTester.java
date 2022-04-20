@@ -46,6 +46,10 @@ public class BattleShipsTester {
         }
         System.out.println("The computer has finished placing all of its ships.");
         System.out.println("The computer has "+game.getCompShipCount()+" ships.");
+        System.out.println("For troubleshooting: ");
+        game.printBoardFull();
+        System.out.println("-------------------------------------");
+        System.out.println("Actual board");
         game.printBoard();
         System.out.println("Let the battle begin!");
         //game.printBoardFull();
@@ -57,9 +61,11 @@ public class BattleShipsTester {
                 xCoord = input.nextInt();
                 System.out.println("Enter the Y coordinate: ");
                 yCoord = input.nextInt();
-                game.launchPlayerMissile(xCoord,yCoord);
-                game.printBoardFull();
-                System.out.println("Your ships: "+game.getPlayerShipCount()+" | "+"Computer ships: "+game.getCompShipCount());
+                if(game.inBounds(xCoord,yCoord)&& game.validMove(xCoord,yCoord)) {
+                    game.launchPlayerMissile(xCoord, yCoord);
+                    game.printBoard();
+                    System.out.println("Your ships: " + game.getPlayerShipCount() + " | " + "Computer ships: " + game.getCompShipCount());
+                }
             }
             else{
                 System.out.println("Computer's Turn");
@@ -71,8 +77,10 @@ public class BattleShipsTester {
                 }
                 xCoord = randInt.nextInt(10);
                 yCoord = randInt.nextInt(10);
-                game.launchComputerMissile(xCoord,yCoord);
-                game.printBoardFull();
+                if(game.validMove(xCoord,yCoord)) {
+                    game.launchComputerMissile(xCoord, yCoord);
+                    game.printBoard();
+                }
                 System.out.println("Your ships: "+game.getPlayerShipCount()+" | "+"Computer ships: "+game.getCompShipCount());
             }
         }

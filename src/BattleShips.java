@@ -6,7 +6,7 @@ public class BattleShips {
     private int[] userCoordinates = new int[2];
     private int numPlayerShips = 0;
     private int numCompShips = 0;
-    private int turn = 0;
+    private int turn = 0; //even numbers are player's turn
     private Random randInt = new Random();
 
 
@@ -47,13 +47,10 @@ public class BattleShips {
         for(int row = 0; row<board.length;row++){
             System.out.print(row+" |");
             for(int col = 0; col<board[row].length; col++){
-                if(board[row][col].equals("2"))
+                if(board[row][col].equals("2") /*|| board[row][col].equals("+")*/)
                     System.out.print(" ");
                 else if(board[row][col].equals("1")) {
                     System.out.print("@");
-                }
-                else if(board[row][col].equals("+")) {
-                    System.out.print(" ");
                 }
                 else{
                     System.out.print(board[row][col]);
@@ -143,6 +140,16 @@ public class BattleShips {
             return true;
         }
         return false;
+    }
+
+    public boolean validMove(int x, int y){
+        if(board[y][x].equals("-")||board[y][x].equals("+")||board[y][x].equals("!")){
+            if(turn%2 == 0){
+                System.out.println("This is not a valid move.");
+                return false;
+            }
+        }
+        return true;
     }
 
     public void launchPlayerMissile(int x, int y){
